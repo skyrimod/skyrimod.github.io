@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Skyrimod的博客小站">
 <meta property="og:description" content="路漫漫其修远兮，吾将上下而求索。">
 <meta property="article:published_time" content="2020-06-19T10:15:51.000Z">
-<meta property="article:modified_time" content="2020-06-21T07:57:14.153Z">
+<meta property="article:modified_time" content="2020-06-22T04:05:28.002Z">
 <meta property="article:author" content="Skyrim">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-21T15:57:14+08:00">
-                2020-06-21
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-22T12:05:28+08:00">
+                2020-06-22
               </time>
             
           </span>
@@ -332,57 +332,57 @@
 
 <a id="more"></a>
 
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>​        继承是个很棒的功能，它使代码可以复用，极大程度上降低了工作量。</p>
-<p>​        java中的继承只能<strong>单继承</strong>，不能多继承。但可以多层次继承。</p>
-<p>​        从某种程度上说，继承是对抽象的进一步使用。我们可以抽象出猫和鸟的共同点，例如：它们都会叫、都会吃东西等，这样就可以得到一个实现它们共同点的类animal，然后，我们可以创建cat类和bird类，并让这两个类继承animal类。因为我们在animal类中实现了叫和吃的方法，所以不用在cat类和bird类中再次实现这两个方法。</p>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p>&emsp;&emsp;继承是个很棒的功能，它使代码可以复用，极大程度上降低了工作量。</p>
+<p>&emsp;&emsp;java中的继承只能<strong>单继承</strong>，不能多继承。但可以多层次继承。</p>
+<p>&emsp;&emsp;从某种程度上说，继承是对抽象的进一步使用。我们可以抽象出猫和鸟的共同点，例如：它们都会叫、都会吃东西等，这样就可以得到一个实现它们共同点的类animal，然后，我们可以创建cat类和bird类，并让这两个类继承animal类。因为我们在animal类中实现了叫和吃的方法，所以不用在cat类和bird类中再次实现这两个方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//animal类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">called</span><span class="params">()</span></span>&#123;&#125;	<span class="comment">//叫方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>&#123;&#125;		<span class="comment">//吃方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cat类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;	<span class="comment">//继承animal</span></span><br><span class="line">&#125;</span><br><span class="line">Cat cat = <span class="keyword">new</span> Cat();	<span class="comment">//实例化猫对象</span></span><br><span class="line">cat.called();			<span class="comment">//调用叫方法</span></span><br><span class="line">cat.eat();				<span class="comment">//调用吃方法</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//bird类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;	<span class="comment">//继承animal</span></span><br><span class="line">&#125;</span><br><span class="line">Bird bird = <span class="keyword">new</span> Bird();	<span class="comment">//实例化鸟对象</span></span><br><span class="line">bird.called();			<span class="comment">//调用叫方法</span></span><br><span class="line">bird.eat();				<span class="comment">//调用吃方法</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h2><p>​        子类会继承父类的所有字段。这样子类就有了父类的属性。</p>
-<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>​        <strong>构造器并不会被继承</strong>，但是在子类的构造器中总是显示或隐式调用父类构造器。</p>
-<p>​        在实例化子类对象时，由于子类继承父类的字段，所以需要对父类字段进行初始化操作，这时，如果子类构造器没有显式调用父类构造器，就会自动调用父类的无参构造器。</p>
+<h2 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h2><p>&emsp;&emsp;子类会继承父类的所有字段。这样子类就有了父类的属性。</p>
+<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>&emsp;&emsp;<strong>构造器并不会被继承</strong>，但是在子类的构造器中总是显示或隐式调用父类构造器。</p>
+<p>&emsp;&emsp;在实例化子类对象时，由于子类继承父类的字段，所以需要对父类字段进行初始化操作，这时，如果子类构造器没有显式调用父类构造器，就会自动调用父类的无参构造器。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> <span class="keyword">extends</span> <span class="title">Employee</span></span>&#123;		<span class="comment">// Manager 继承 Employee</span></span><br><span class="line">	Manager(name,id,bonus)&#123;</span><br><span class="line">		<span class="keyword">super</span>(name,id);				<span class="comment">// 使用super调用父类构造器，此处为显式调用</span></span><br><span class="line">		<span class="keyword">this</span>.bonus = bonus;			<span class="comment">// 给manager的字段赋值</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Getter、Setter"><a href="#Getter、Setter" class="headerlink" title="Getter、Setter"></a>Getter、Setter</h2><p>​        子类同样会继承父类的Getter和Setter方法。但不是用来调用自身的字段，而是用来调用父类的字段。如果尝试用来调用自身字段则是错误的，因为子类无法访问父类的private字段。</p>
+<h2 id="Getter、Setter"><a href="#Getter、Setter" class="headerlink" title="Getter、Setter"></a>Getter、Setter</h2><p>&emsp;&emsp;子类同样会继承父类的Getter和Setter方法。但不是用来调用自身的字段，而是用来调用父类的字段。如果尝试用来调用自身字段则是错误的，因为子类无法访问父类的private字段。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manger</span> <span class="keyword">extends</span> <span class="title">Employee</span></span>&#123;	<span class="comment">// Employee类有 name字段，getName()方法</span></span><br><span class="line">	getName();	<span class="comment">// Manager可以调用getName()，但是会出错，因为Manager类没有name字段</span></span><br><span class="line">    <span class="keyword">super</span>.getName();	<span class="comment">// 使用 super 调用父类的getName()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        <font color = red>虽然Manager类继承了Employee类的字段，但是不能直接访问。</font></p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>​        继承的用处很大程度体现在方法上，可以直接调用、重写等</p>
+<p>&emsp;&emsp;<font color = red>虽然Manager类继承了Employee类的字段，但是不能直接访问。</font></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>&emsp;&emsp;继承的用处很大程度体现在方法上，可以直接调用、重写等</p>
 <p><strong>重写</strong>：子类对父类方法重写，以实现自身的行为。<font color = red>方法名不变，不改参数和返回值，只改变核心。</font></p>
 <p><strong>重载</strong>：<font color = red>方法名不变，参数和返回值可变，且必须改变参数。</font></p>
 <p><strong><em>PS:把方法当做黑盒来看，重写是希望通过同样的黑盒（方法名）使用同样的输入（参数）得到不同的输出（返回值）；重载是希望通过同样的黑盒（方法名）使用不同的输入（参数）得到相应的输出（返回值）。</em></strong></p>
-<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>​        什么是多态？书上说，在java中，对象变量是多态的，即Employee类型的变量可以引用Employee类的对象，也可以引用Employee类任何子类的对象。也就是说，<font color = red>同一个事物，有不同的形态。</font>那么，重写也是多态的（重载不是多态，因为改变了参数列表）。</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>&emsp;&emsp;什么是多态？书上说，在java中，对象变量是多态的，即Employee类型的变量可以引用Employee类的对象，也可以引用Employee类任何子类的对象。也就是说，<font color = red>同一个事物，有不同的形态。</font>那么，重写也是多态的（重载不是多态，因为改变了参数列表）。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Employee e = <span class="keyword">new</span> Manager();		<span class="comment">// 父类引用引用子类对象，向上转型</span></span><br><span class="line">e.getBonus();	<span class="comment">// 错误！e是Employee类，而getBonus()是Manager的方法</span></span><br><span class="line">				<span class="comment">// 这里编译器并没有把e作为Manager类，如果想要引用子类方法需要强制类型转换</span></span><br><span class="line">Manager m = (Manager) e;	<span class="comment">//向下转型</span></span><br></pre></td></tr></table></figure>
 
 <p><em>PS：父类引用引用子类对象是向上转型；将父类引用强转为子类引用是向下转型（这里的父类引用必须是引用子类对象的父类引用，即向上转型后的父类引用）。切记，不能将父类引用赋值给子类变量</em>。</p>
-<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p>​        使用final修饰的类或方法不能被继承。final类的字段不是final，方法自动成为final方法。因为fianl修饰字段时，字段为常量。</p>
-<h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><p>​        Object类是所有类的父类，它实现了 equals() , hashCode() , toString() , clone() , getClass() 方法，其中 wait() , notify() , notifyAll() 方法用于多线程。</p>
-<h2 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h2><p>​        equals()方法用来检测两个对象是否相等。</p>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p>&emsp;&emsp;使用final修饰的类或方法不能被继承。final类的字段不是final，方法自动成为final方法。因为fianl修饰字段时，字段为常量。</p>
+<h1 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h1><p>&emsp;&emsp;Object类是所有类的父类，它实现了 equals() , hashCode() , toString() , clone() , getClass() 方法，其中 wait() , notify() , notifyAll() 方法用于多线程。</p>
+<h2 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h2><p>&emsp;&emsp;equals()方法用来检测两个对象是否相等。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        这里比较的是对象引用，类似C语言中，直接比较两个指针是否相同。可以得知，如果它们引用的同一块内存，那这两个对象一定相同。在实际开发中，还需要检测对象的属性来判断是否相等。下面给出一个较完善的equals() 方法改写：比较两个员工的姓名、薪水和雇佣日期。</p>
+<p>&emsp;&emsp;这里比较的是对象引用，类似C语言中，直接比较两个指针是否相同。可以得知，如果它们引用的同一块内存，那这两个对象一定相同。在实际开发中，还需要检测对象的属性来判断是否相等。下面给出一个较完善的equals() 方法改写：比较两个员工的姓名、薪水和雇佣日期。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Employee&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function">puublic <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object otherObject)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span> == otherObject)	<span class="comment">// 1.比较this和otherObject是否相等</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (otherObject == <span class="keyword">null</span>)	<span class="comment">// 2.检测otherObject是否为空</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (getClass() != otherObject.getClass)	<span class="comment">// 3.比较this和otherObject的类是否一样</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        Employee other = (Employee) otherObject;	<span class="comment">// 4.强制类型转换otherObject</span></span><br><span class="line">        <span class="keyword">return</span> name.equals(other.name)		<span class="comment">// 5.比较具体字段</span></span><br><span class="line">            &amp;&amp; salary == other.salary</span><br><span class="line">            &amp;&amp; hireDay.equals(other.hireDay);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        这5个步骤建议一步也不要少，其中2和3可以合并为一步。</p>
+<p>&emsp;&emsp;这5个步骤建议一步也不要少，其中2和3可以合并为一步。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((otherObject == <span class="keyword">null</span>) || (getClass() != otherObject.getClass())) </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h2><p>​        hashCode()方法用于生成散列码，不同对象的散列码不同，<font color = red>如果 x.equals(y) 返回 true，那么 x.hashCode() 和 y.hashCode() 的返回值必须相同。</font></p>
+<h2 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h2><p>&emsp;&emsp;hashCode()方法用于生成散列码，不同对象的散列码不同，<font color = red>如果 x.equals(y) 返回 true，那么 x.hashCode() 和 y.hashCode() 的返回值必须相同。</font></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@HotSpotIntrinsicCandidate</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 
-<p>​        注解@HotSpotIntrinsicCandidate意味着该方法有一套高效的实现（目前还没学到注解和 HotSpot 这两个知识点）。</p>
-<p>​        可以重写 hashCode() , 自定义根据哪些数据来生成散列码。</p>
+<p>&emsp;&emsp;注解@HotSpotIntrinsicCandidate意味着该方法有一套高效的实现（目前还没学到注解和 HotSpot 这两个知识点）。</p>
+<p>&emsp;&emsp;可以重写 hashCode() , 自定义根据哪些数据来生成散列码。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Objects.hash(name, salary, hireDay);	<span class="comment">// 使用name, salary, hireDay生成散列码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h2><p>​        toString()方法是用来打印对象的信息。</p>
+<h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h2><p>&emsp;&emsp;toString()方法是用来打印对象的信息。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getClass().getName() + <span class="string">"@"</span> + Integer.toHexString(hashCOde());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        如果没有对 toString() 方法重写，则会打印出这个类的类名和十六进制的散列码。下面给出一个重写例程。</p>
+<p>&emsp;&emsp;如果没有对 toString() 方法重写，则会打印出这个类的类名和十六进制的散列码。下面给出一个重写例程。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getClass().getName()</span><br><span class="line">        + <span class="string">"[name="</span> + name</span><br><span class="line">        + <span class="string">", salary="</span> + salary</span><br><span class="line">        + <span class="string">", hireDay="</span> + hireDay</span><br><span class="line">        + <span class="string">"]"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        这段程序会打印出 Employee[name=. . ., salary=. . ., hireDay=. . .] 。</p>
+<p>&emsp;&emsp;这段程序会打印出 Employee[name=. . ., salary=. . ., hireDay=. . .] 。</p>
 <hr>
 <p><em>PS：继承虽然实现了代码复用问题，但却很大程度上限制了子类的个性化，子类想要实现自身的功能就需要重写父类的方法。后面关于接口的内容就很好的解决了这个问题。（但我个人总觉得接口和继承差不多，就是实现了一些特殊功能）</em></p>
 
@@ -424,6 +424,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/22/%E7%9F%A5%E4%B8%8D%E8%B6%B3%E2%80%94%E2%80%94java-3-%E6%8E%A5%E5%8F%A3/" rel="prev" title="知不足——java(3))接口">
+                知不足——java(3))接口 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -504,7 +508,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
