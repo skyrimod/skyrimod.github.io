@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="待定">
+<meta name="description" content="包含内容：抽象类、接口、Lambda表达式 ps：内容待完善…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="知不足——java(3))接口">
 <meta property="og:url" content="http://yoursite.com/2020/06/22/%E7%9F%A5%E4%B8%8D%E8%B6%B3%E2%80%94%E2%80%94java-3-%E6%8E%A5%E5%8F%A3/index.html">
 <meta property="og:site_name" content="Skyrimod的博客小站">
-<meta property="og:description" content="待定">
+<meta property="og:description" content="包含内容：抽象类、接口、Lambda表达式 ps：内容待完善…">
 <meta property="article:published_time" content="2020-06-22T03:37:45.000Z">
-<meta property="article:modified_time" content="2020-06-22T04:07:22.481Z">
+<meta property="article:modified_time" content="2020-06-22T14:50:26.399Z">
 <meta property="article:author" content="Skyrim">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -294,7 +294,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-22T12:07:22+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-22T22:50:26+08:00">
                 2020-06-22
               </time>
             
@@ -328,11 +328,67 @@
       
 
       
-        <center>待定</
-
+        <p>包含内容：抽象类、接口、Lambda表达式</p>
+<p>ps：内容待完善…</p>
 <a id="more"></a>
 
-<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1>
+<p>&emsp;&emsp;在介绍接口之前，先来看下抽象类。接口和抽象类有很多相似点，它更像是在抽象类的基础上，补充了更多的功能。</p>
+<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><p>在继承部分提到过，把类的共同点抽象出来作为父类。如果我们只需要这个父类作为派生其他类的基类，而不去实例化一个类，那么就可以把这个类使用<font color = red>修饰词 abstract </font>修饰，作为抽象类来使用。定义抽象类的语法如下所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">    . . .</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h2><p>抽象类可以包含字段。而且使用方法和普通类的使用方法完全一样。</p>
+<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>抽象类的一大特点就是不能被实例化！因此，抽象类没有构造器。但是，我们可以使用抽象类引用去指向一个继承并且实现抽象方法的子类。这点和继承中的父类引用指向子类对象是一样的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person student = <span class="keyword">new</span> Student();		<span class="comment">// Person是抽象类，Student是继承了Person的子类</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>在抽象类中，方法可以抽象，也可以不抽象。</p>
+<p><strong>抽象方法</strong>：使用 abstract 修饰的方法是抽象方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] <span class="keyword">abstract</span> 返回值 方法名();</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里的方法<font color = red>没有方法体！</font>这也是抽象类和普通类的最大区别。</p>
+<p>抽象方法只是告诉子类需要做什么，而不是该怎么做。如果子类没有重写抽象类的抽象方法，那么子类也将自动变成抽象类，所以需要实例化时，必须重写所有的抽象方法。</p>
+<p><strong>非抽象方法</strong>：非抽象方法使用方法和普通类中的方法一样。</p>
+<p>如果一个类含有一个或多个抽象方法，那这个类一定是抽象类；而抽象类中可以不含抽象方法。</p>
+<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>java不支持多继承，所以引入了接口的概念。下面先给出接口的基本语法。</p>
+<p>使用 interface 建立接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] <span class="class"><span class="keyword">interface</span> 接口名</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 implements 使用接口。一个类可以实现多个接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名 <span class="keyword">implements</span> 接口1，接口2，...</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>什么是接口？</strong></p>
+<p>&emsp;&emsp;如书上所说：<font color = red>接口是用来描述类应该做什么，而不指定它们具体应该如何做。</font>这是接口和抽象类最相似的地方。接口像是<font color = red>一种行为规范，是一个协议</font>，比如：U盘实现了USB接口，只要是实现USB接口的设备，我们都可以把U盘插上去传输数据；再比如：手机数据线实现了Type-C接口，只要手机支持Type-C接口，那么无论是哪家厂商的手机数据线，只要它实现了Type-C接口，那么就可以和手机连接。</p>
+<p>接口不是类，但与抽象类十分相似。下面将从多方面给出接口和抽象类的区别。</p>
+<h2 id="字段-1"><a href="#字段-1" class="headerlink" title="字段"></a>字段</h2><p>抽象类中的字段可以是普通字段，而<font color = red>接口中的字段只能是常量。</font>且是全局常量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> 常量名 = 值;</span><br></pre></td></tr></table></figure>
+
+<p>在声明时可以省略 static final 修饰符，编译器会自动为字段加上这两个修饰符，切记，声明常量的时候必须给常量赋值。</p>
+<h2 id="构造器-1"><a href="#构造器-1" class="headerlink" title="构造器"></a>构造器</h2><p>接口和抽象类一样，不能实例化对象，所以没有构造器，但可以使用接口类型引用指向实现该接口的类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person student = <span class="keyword">new</span> Student(); 	<span class="comment">// Person是接口，Student是实现了Person接口的类</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><p>接口中的方法在编译时都会默认加上 abstract ，这样<font color = red>接口中的所有方法都是抽象方法。</font>所以实现接口的类中，必须实现该接口的所有方法。</p>
+<p><strong>默认方法：</strong>因为是抽象方法，所以不含方法体。但是可以使用 default 修饰符使方法成为默认方法，这样就可以添加函数体。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span> 返回值 方法名()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>用处：</strong>如果我们给一个接口中新增了一个方法，那么之前已经实现这个接口的类中由于没有实现这个新增的方法所以出现错误，这时，我们可以把这个新增的方法设置为 default 方法，并提供函数体，这样就不会出现错误。</p>
+<p>下面给出一个标准库中的一个接口Comparable实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparable</span>&lt;<span class="title">T</span>&gt; </span>&#123;	<span class="comment">// Comparable接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(T o)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">Comparable</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(T o)</span></span>&#123;		<span class="comment">// 实现 compareTo 方法</span></span><br><span class="line">		<span class="keyword">return</span> T.compare(参数<span class="number">1</span>， 参数<span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h1><p>Lambda表达式是一个可以传递的代码块。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">参数 -&gt; 表达式	<span class="comment">// lambda表达式格式</span></span><br></pre></td></tr></table></figure>
+
+<p>如何使用Lambda表达式？例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort(T[] a, Comparator&lt;? <span class="keyword">super</span> T&gt; c)&#123;&#125;;	<span class="comment">//参数1是T数组,参数2是实现Comparator接口的实例</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T, T)</span></span>&#123;&#125;; <span class="comment">//compare()是接口Comparator的一个方法。</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(planeets, (first, second) -&gt; &#123;	<span class="comment">// 使用Lambda表达式</span></span><br><span class="line">    first.length() - second.length();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面这个表达式就是对compare()方法的实现</span></span><br><span class="line">(first, second) -&gt; first.length() - second.length();</span><br></pre></td></tr></table></figure>
+
+<p>这里对Lambda表达式的使用就是下面将要介绍的函数式接口。</p>
+<h2 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h2><p>&emsp;&emsp;在一些接口中只有一个方法，每次使用这个方法时必须创建一个实现这个接口的类，然后重写并调用这个方法。为了简化代码，可以使用Lambda表达式来代替创建类等操作。笼统地说，就是需要传递一个接口变量（函数）时，直接使用Lambda表达式将方法体传递过去，省去中间步骤。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </p>
+<p>&emsp;&emsp;可见<font color = red>Lambda表达式本身就是对接口的实现</font>，</p>
+
       
     </div>
     
@@ -497,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#接口"><span class="nav-number">1.</span> <span class="nav-text">接口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象类"><span class="nav-number">1.</span> <span class="nav-text">抽象类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字段"><span class="nav-number">1.1.</span> <span class="nav-text">字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器"><span class="nav-number">1.2.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">1.3.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口"><span class="nav-number">2.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字段-1"><span class="nav-number">2.1.</span> <span class="nav-text">字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器-1"><span class="nav-number">2.2.</span> <span class="nav-text">构造器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.3.</span> <span class="nav-text">方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lambda表达式"><span class="nav-number">3.</span> <span class="nav-text">Lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式接口"><span class="nav-number">3.1.</span> <span class="nav-text">函数式接口</span></a></li></ol></li></ol></div>
             
 
           </div>
