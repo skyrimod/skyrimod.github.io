@@ -328,13 +328,13 @@
       
 
       
-        <center><font color =SpringGreen>学而时习之，不亦说乎。</font></center>
+        <center><font color="SpringGreen">学而时习之，不亦说乎。</font></center>
 
 <p>摘要：抽象类、接口、Lambda表达式、函数表达式</p>
 <a id="more"></a>
 
 <p>&emsp;&emsp;在介绍接口之前，先来看下抽象类。接口和抽象类有很多相似点，它更像是在抽象类的基础上，补充了更多的功能。</p>
-<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><p>在继承部分提到过，把类的共同点抽象出来作为父类。如果我们只需要这个父类作为派生其他类的基类，而不去实例化一个类，那么就可以把这个类使用<font color = red>修饰词 abstract </font>修饰，作为抽象类来使用。定义抽象类的语法如下所示。</p>
+<h1 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h1><p>在继承部分提到过，把类的共同点抽象出来作为父类。如果我们只需要这个父类作为派生其他类的基类，而不去实例化一个类，那么就可以把这个类使用<font color="red">修饰词 abstract </font>修饰，作为抽象类来使用。定义抽象类的语法如下所示。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">    . . .</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="字段"><a href="#字段" class="headerlink" title="字段"></a>字段</h2><p>抽象类可以包含字段。而且使用方法和普通类的使用方法完全一样。</p>
@@ -345,7 +345,7 @@
 <p><strong>抽象方法</strong>：使用 abstract 修饰的方法是抽象方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[修饰符] <span class="keyword">abstract</span> 返回值 方法名();</span><br></pre></td></tr></table></figure>
 
-<p>注意：这里的方法<font color = red>没有方法体！</font>这也是抽象类和普通类的最大区别。</p>
+<p>注意：这里的方法<font color="red">没有方法体！</font>这也是抽象类和普通类的最大区别。</p>
 <p>抽象方法只是告诉子类需要做什么，而不是该怎么做。如果子类没有重写抽象类的抽象方法，那么子类也将自动变成抽象类，所以需要实例化时，必须重写所有的抽象方法。</p>
 <p><strong>非抽象方法</strong>：非抽象方法使用方法和普通类中的方法一样。</p>
 <p>如果一个类含有一个或多个抽象方法，那这个类一定是抽象类；而抽象类中可以不含抽象方法。</p>
@@ -357,16 +357,16 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名 <span class="keyword">implements</span> 接口1，接口2，...</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>什么是接口？</strong></p>
-<p>&emsp;&emsp;如书上所说：<font color = red>接口是用来描述类应该做什么，而不指定它们具体应该如何做。</font>这是接口和抽象类最相似的地方。接口像是<font color = red>一种行为规范，是一个协议</font>，比如：U盘实现了USB接口，只要是实现USB接口的设备，我们都可以把U盘插上去传输数据；再比如：手机数据线实现了Type-C接口，只要手机支持Type-C接口，那么无论是哪家厂商的手机数据线，只要它实现了Type-C接口，那么就可以和手机连接。</p>
+<p>&emsp;&emsp;如书上所说：<font color="red">接口是用来描述类应该做什么，而不指定它们具体应该如何做。</font>这是接口和抽象类最相似的地方。接口像是<font color="red">一种行为规范，是一个协议</font>，比如：U盘实现了USB接口，只要是实现USB接口的设备，我们都可以把U盘插上去传输数据；再比如：手机数据线实现了Type-C接口，只要手机支持Type-C接口，那么无论是哪家厂商的手机数据线，只要它实现了Type-C接口，那么就可以和手机连接。</p>
 <p>接口不是类，但与抽象类十分相似。下面将从多方面给出接口和抽象类的区别。</p>
-<h2 id="字段-1"><a href="#字段-1" class="headerlink" title="字段"></a>字段</h2><p>抽象类中的字段可以是普通字段，而<font color = red>接口中的字段只能是常量。</font>且是全局常量。</p>
+<h2 id="字段-1"><a href="#字段-1" class="headerlink" title="字段"></a>字段</h2><p>抽象类中的字段可以是普通字段，而<font color="red">接口中的字段只能是常量。</font>且是全局常量。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> 常量名 = 值;</span><br></pre></td></tr></table></figure>
 
 <p>在声明时可以省略 static final 修饰符，编译器会自动为字段加上这两个修饰符，切记，声明常量的时候必须给常量赋值。</p>
 <h2 id="构造器-1"><a href="#构造器-1" class="headerlink" title="构造器"></a>构造器</h2><p>接口和抽象类一样，不能实例化对象，所以没有构造器，但可以使用接口类型引用指向实现该接口的类。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person student = <span class="keyword">new</span> Student(); 	<span class="comment">// Person是接口，Student是实现了Person接口的类</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><p>接口中的方法在编译时都会默认加上 abstract ，这样<font color = red>接口中的所有方法都是抽象方法。</font>所以实现接口的类中，必须实现该接口的所有方法。</p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><p>接口中的方法在编译时都会默认加上 abstract ，这样<font color="red">接口中的所有方法都是抽象方法。</font>所以实现接口的类中，必须实现该接口的所有方法。</p>
 <p><strong>默认方法：</strong>因为是抽象方法，所以不含方法体。但是可以使用 default 修饰符使方法成为默认方法，这样就可以添加函数体。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">default</span> 返回值 方法名()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -388,7 +388,7 @@
 
 <p>这里对Lambda表达式的使用就是下面将要介绍的函数式接口。</p>
 <h2 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h2><p>&emsp;&emsp;在一些接口中只有一个方法，每次使用这个方法时必须创建一个实现这个接口的类，然后重写并调用这个方法。为了简化代码，可以使用Lambda表达式来代替创建类等操作。笼统地说，就是需要传递一个接口变量（函数）时，直接使用Lambda表达式将方法体传递过去，省去中间步骤。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </p>
-<p>&emsp;&emsp;可见<font color = red>Lambda表达式本身就是对接口的实现</font>，</p>
+<p>&emsp;&emsp;可见<font color="red">Lambda表达式本身就是对接口的实现</font>，</p>
 
       
     </div>
@@ -512,7 +512,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -525,7 +525,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

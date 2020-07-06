@@ -328,14 +328,14 @@
       
 
       
-        <center><font color =MediumVioletRed>学而不思则罔，思而不学则殆。</font></center>
+        <center><font color="MediumVioletRed">学而不思则罔，思而不学则殆。</font></center>
 
 <p>摘要：介绍异常的相关语法。</p>
 <a id="more"></a>
 
 <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p>异常用于处理代码中的出现的问题。 <strong>所有的异常类都派生于Throwable类的子类Exception类</strong>。在标准库中提供了RuntimeException异常和IOException异常。异常类分为检查型异常和非检查型异常，这里的检查指的是编译器检查。</p>
 <p><strong>检查型异常：</strong>也叫做编译时异常，包含除RuntimExcetion异常及其子类的所有异常。编译器会检查这类异常，当程序中出现这类异常时，需要使用 throws 抛出，或者使用 try-catch 捕获并处理，如果不在代码中处理这类异常，将不能通过编译。</p>
-<p><strong>非检查型异常：</strong>RuntimeException异常，也叫做运行时异常，编译器不会检查这类异常，所以程序可以通过编译，但在运行时会报错，例如：ArrayIndexOutBoundException数组下标越界异常、NullPointerException空指针异常等。<font color = red>这些异常应该在程序中避免出现！</font></p>
+<p><strong>非检查型异常：</strong>RuntimeException异常，也叫做运行时异常，编译器不会检查这类异常，所以程序可以通过编译，但在运行时会报错，例如：ArrayIndexOutBoundException数组下标越界异常、NullPointerException空指针异常等。<font color="red">这些异常应该在程序中避免出现！</font></p>
 <h2 id="相关语法"><a href="#相关语法" class="headerlink" title="相关语法"></a>相关语法</h2><h3 id="try-catch"><a href="#try-catch" class="headerlink" title="try-catch"></a>try-catch</h3><p>使用 try 捕获异常，使用 catch 处理异常。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionTest</span></span>&#123;</span><br><span class="line">	<span class="keyword">try</span>&#123;						<span class="comment">// try语句块内的程序会抛出检查型异常</span></span><br><span class="line">		. . . 					<span class="comment">// 打开资源</span></span><br><span class="line">	&#125;<span class="keyword">catch</span>(ExceptionType e1)&#123;	<span class="comment">// 捕获异常后，运行catch语句块内的程序</span></span><br><span class="line">		. . .</span><br><span class="line">	&#125;<span class="keyword">catch</span>(ExceptionType e2)&#123;	<span class="comment">// 可以使用多个catch处理多个不同的异常</span></span><br><span class="line">        . . .</span><br><span class="line">    &#125;<span class="keyword">finally</span>&#123;					<span class="comment">// 当执行完try后执行finally语句块</span></span><br><span class="line">        . . .					<span class="comment">// 关闭资源</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -483,7 +483,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -496,7 +496,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

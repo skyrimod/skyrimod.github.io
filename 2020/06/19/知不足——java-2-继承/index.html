@@ -328,7 +328,7 @@
       
 
       
-        <center><font color = blue>路漫漫其修远兮，吾将上下而求索。</font></center>
+        <center><font color="blue">路漫漫其修远兮，吾将上下而求索。</font></center>
 
 <p>摘要：从字段、构造器、方法等角度介绍继承规则；多态；对Object类的equals()、hashCode()、toString()方法重写。</p>
 <a id="more"></a>
@@ -350,12 +350,12 @@
 <h2 id="Getter、Setter"><a href="#Getter、Setter" class="headerlink" title="Getter、Setter"></a>Getter、Setter</h2><p>&emsp;&emsp;子类同样会继承父类的Getter和Setter方法。但不是用来调用自身的字段，而是用来调用父类的字段。如果尝试用来调用自身字段则是错误的，因为子类无法访问父类的private字段。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manger</span> <span class="keyword">extends</span> <span class="title">Employee</span></span>&#123;	<span class="comment">// Employee类有 name字段，getName()方法</span></span><br><span class="line">	getName();	<span class="comment">// Manager可以调用getName()，但是会出错，因为Manager类没有name字段</span></span><br><span class="line">    <span class="keyword">super</span>.getName();	<span class="comment">// 使用 super 调用父类的getName()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;<font color = red>虽然Manager类继承了Employee类的字段，但是不能直接访问。</font></p>
+<p>&emsp;&emsp;<font color="red">虽然Manager类继承了Employee类的字段，但是不能直接访问。</font></p>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>&emsp;&emsp;继承的用处很大程度体现在方法上，可以直接调用、重写等</p>
-<p><strong>重写</strong>：子类对父类方法重写，以实现自身的行为。<font color = red>方法名不变，不改参数和返回值，只改变核心。</font></p>
-<p><strong>重载</strong>：<font color = red>方法名不变，参数和返回值可变，且必须改变参数。</font></p>
+<p><strong>重写</strong>：子类对父类方法重写，以实现自身的行为。<font color="red">方法名不变，不改参数和返回值，只改变核心。</font></p>
+<p><strong>重载</strong>：<font color="red">方法名不变，参数和返回值可变，且必须改变参数。</font></p>
 <p><strong><em>PS:把方法当做黑盒来看，重写是希望通过同样的黑盒（方法名）使用同样的输入（参数）得到不同的输出（返回值）；重载是希望通过同样的黑盒（方法名）使用不同的输入（参数）得到相应的输出（返回值）。</em></strong></p>
-<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>&emsp;&emsp;什么是多态？书上说，在java中，对象变量是多态的，即Employee类型的变量可以引用Employee类的对象，也可以引用Employee类任何子类的对象。也就是说，<font color = red>同一个事物，有不同的形态。</font>那么，重写也是多态的（重载不是多态，因为改变了参数列表）。</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p>&emsp;&emsp;什么是多态？书上说，在java中，对象变量是多态的，即Employee类型的变量可以引用Employee类的对象，也可以引用Employee类任何子类的对象。也就是说，<font color="red">同一个事物，有不同的形态。</font>那么，重写也是多态的（重载不是多态，因为改变了参数列表）。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Employee e = <span class="keyword">new</span> Manager();		<span class="comment">// 父类引用引用子类对象，向上转型</span></span><br><span class="line">e.getBonus();	<span class="comment">// 错误！e是Employee类，而getBonus()是Manager的方法</span></span><br><span class="line">				<span class="comment">// 这里编译器并没有把e作为Manager类，如果想要引用子类方法需要强制类型转换</span></span><br><span class="line">Manager m = (Manager) e;	<span class="comment">//向下转型</span></span><br></pre></td></tr></table></figure>
 
 <p><em>PS：父类引用引用子类对象是向上转型；将父类引用强转为子类引用是向下转型（这里的父类引用必须是引用子类对象的父类引用，即向上转型后的父类引用）。切记，不能将父类引用赋值给子类变量</em>。</p>
@@ -370,7 +370,7 @@
 <p>&emsp;&emsp;这5个步骤建议一步也不要少，其中2和3可以合并为一步。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((otherObject == <span class="keyword">null</span>) || (getClass() != otherObject.getClass())) </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h2><p>&emsp;&emsp;hashCode()方法用于生成散列码，不同对象的散列码不同，<font color = red>如果 x.equals(y) 返回 true，那么 x.hashCode() 和 y.hashCode() 的返回值必须相同。</font></p>
+<h2 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h2><p>&emsp;&emsp;hashCode()方法用于生成散列码，不同对象的散列码不同，<font color="red">如果 x.equals(y) 返回 true，那么 x.hashCode() 和 y.hashCode() 的返回值必须相同。</font></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@HotSpotIntrinsicCandidate</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;注解@HotSpotIntrinsicCandidate意味着该方法有一套高效的实现（目前还没学到注解和 HotSpot 这两个知识点）。</p>
@@ -509,7 +509,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -522,7 +522,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
