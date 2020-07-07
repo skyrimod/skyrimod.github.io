@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="业精于勤，荒于嬉；行成于思，毁于随。  摘要：介绍集合的使用。">
+<meta name="description" content="三人行必有我师焉。  摘要：介绍集合ArrayList、LinkedList、HashSet、HashMap的常用方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="知不足——java(6)集合">
 <meta property="og:url" content="http://yoursite.com/2020/07/06/%E7%9F%A5%E4%B8%8D%E8%B6%B3%E2%80%94%E2%80%94java-6-%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="Skyrimod的博客小站">
-<meta property="og:description" content="业精于勤，荒于嬉；行成于思，毁于随。  摘要：介绍集合的使用。">
+<meta property="og:description" content="三人行必有我师焉。  摘要：介绍集合ArrayList、LinkedList、HashSet、HashMap的常用方法。">
 <meta property="og:image" content="http://yoursite.com/2020/07/06/%E7%9F%A5%E4%B8%8D%E8%B6%B3%E2%80%94%E2%80%94java-6-%E9%9B%86%E5%90%88/Collection%E6%8E%A5%E5%8F%A3.png">
 <meta property="article:published_time" content="2020-07-06T03:39:50.000Z">
-<meta property="article:modified_time" content="2020-07-06T03:48:19.880Z">
+<meta property="article:modified_time" content="2020-07-06T13:29:13.489Z">
 <meta property="article:author" content="Skyrim">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -296,7 +296,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-07-06T11:48:19+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-06T21:29:13+08:00">
                 2020-07-06
               </time>
             
@@ -330,13 +330,82 @@
       
 
       
-        <center><font color="red">业精于勤，荒于嬉；行成于思，毁于随。</font></center>
+        <center><font color="red">三人行必有我师焉。</font></center>
 
-<p>摘要：介绍集合的使用。</p>
+<p>摘要：介绍集合ArrayList、LinkedList、HashSet、HashMap的常用方法。</p>
 <a id="more"></a>
 
 <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>集合也叫容器，顾名思义，是一种用来存储数据的工具类。</p>
-<img src="/2020/07/06/%E7%9F%A5%E4%B8%8D%E8%B6%B3%E2%80%94%E2%80%94java-6-%E9%9B%86%E5%90%88/Collection接口.png" style="zoom:50%;">
+<p>下图是部分集合关系图：</p>
+<img src="/2020/07/06/%E7%9F%A5%E4%B8%8D%E8%B6%B3%E2%80%94%E2%80%94java-6-%E9%9B%86%E5%90%88/Collection接口.png" style="zoom:67%;">
+
+<h1 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Iterable</span>&lt;<span class="title">e</span>&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口与实现分离：定义部分功能的接口，让类去实现功能。</p>
+<p>通过接口与实现分离，我们可以使用父类引用指向子类对象（多态）的方式，访问类之间的通用（接口）方法。</p>
+<p>下面给出Collection接口的部分常用方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增：向集合中增加一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//删：删除指定元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//查：查询是否含有这个数据</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//清空整个集合</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回集合大小</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//判断是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回集合数组</span></span><br><span class="line">Object[] toArray();</span><br><span class="line"><span class="comment">//遍历集合,返回一个迭代器</span></span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h2><p>List接口用来描述<strong>有序、有索引、允许重复</strong>的元素集合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可见，List接口继承了Collection接口，所以Collection接力的方法List接口也可以使用。</p>
+<p>下面是List接口的部分常用方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E e)</span></span>;</span><br><span class="line"><span class="comment">//删</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//查</span></span><br><span class="line"><span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="comment">//改</span></span><br><span class="line"><span class="function">E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E e)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>由于List集合是有索引的，所以方法中<strong>增加了关于索引的操作</strong>。</p>
+<h3 id="ArrayList类"><a href="#ArrayList类" class="headerlink" title="ArrayList类"></a>ArrayList类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;...</span></span><br></pre></td></tr></table></figure>
+
+<p>ArrayList类实现的是<strong>长度可变的数组</strong>，在java中，普通的数组长度是不可变的。</p>
+<p>常用部分方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增：在数组最后增加元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//增：在指定索引位置增加元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E e)</span></span>;</span><br><span class="line"><span class="comment">//返回索引范围的子集合</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;E&gt; <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>由于ArrayList已经是一个类，它实现了Collection接口和List接口所有的方法，所以就不再写重复功能的方法，下同。</p>
+<h3 id="LinkedList类"><a href="#LinkedList类" class="headerlink" title="LinkedList类"></a>LinkedList类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;...</span></span><br></pre></td></tr></table></figure>
+
+<p>LinkedList类实现了链表，由于链表易于操作头尾的数据，所以增加了关于头尾操作的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增：在头部增加元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//增：在尾部增加元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//删：删除头部元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">removeFirst</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//删：删除尾部元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">removeLast</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查：获取头部元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">getFirst</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查：获取尾部元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">getLast</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>LinkedList类同时<strong>实现了栈的操作</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//入栈</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//出栈</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">pop</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>ps：ArrayList类查询快，增删慢；LinkedList类查询慢，增删快。</em></strong></p>
+<h3 id="遍历（迭代器）"><a href="#遍历（迭代器）" class="headerlink" title="遍历（迭代器）"></a>遍历（迭代器）</h3><p>在对集合进行操作时，往往需要遍历集合，下面给出遍历打印集合元素的三种方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一：for循环</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">10</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">    System.out.println(list.get(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式二：for-each（增强型for循环）</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">10</span>);</span><br><span class="line"><span class="keyword">for</span>(String i : list)&#123;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式三：使用迭代器</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;(<span class="number">10</span>);</span><br><span class="line">Iterator iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.haxNext())&#123;</span><br><span class="line">    System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>iterator.haxNext()</strong>：如果后面有元素，则返回true，反之false。常用作遍历条件。</p>
+<p><strong>iterator.next()</strong>：返回一个元素，并指向下一个元素。常用类获取元素。</p>
+<h2 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h2><p>Set接口用来表示<strong>无索引、不重复</strong>的元素集合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可见Set接口继承了Collection接口，所以可以使用Collection接口的方法。</p>
+<p>下面为常用方法，也是Collection接口的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增：向集合中增加一个元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//删：删除指定元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//查：查询是否含有这个数据</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//清空整个集合</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回集合大小</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//判断是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回集合数组</span></span><br><span class="line">Object[] toArray();</span><br><span class="line"><span class="comment">//遍历集合,返回一个迭代器</span></span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="HashSet类"><a href="#HashSet类" class="headerlink" title="HashSet类"></a>HashSet类</h3><p>HashSet类是一个无序集合，底层是一个实现哈希表结构的集合类。</p>
+<p>（哈希表：由<strong>数组+链表/红黑树</strong>构成的复合数据结构。）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;...</span></span><br></pre></td></tr></table></figure>
+
+<p>HashSet接口和List接口的区别在于不重复和无索引。之所以有这样的区别是因为其底层是哈希表。在哈希表中，<strong>数组用来存放哈希值</strong>，每个存放哈希值的数组元素内都有一个<strong>链表，用来存放元素值</strong>，每次遍历HashSet时都是遍历查询哈希值，而同样的哈希值往往代表同一个数据，所以当赋值的元素哈希值一样时，就直接覆盖链表里的值，当值不同而哈希值相同时，就增加链表长度，存储在新的链表节点中，当链表节点超过8个时，就会把链表转为<strong>红黑树</strong>（增加查找速度）。由于查询时，是在数组中查询哈希值，所以查询速度很快。</p>
+<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p>由于Set接口是无索引的，所以不能用普通的for循环来遍历Set集合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一：for-each（增强型for循环）</span></span><br><span class="line">HashSet&lt;String&gt; hashset = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">hashset.add(<span class="string">""</span>)...<span class="comment">//赋值</span></span><br><span class="line"><span class="keyword">for</span>(String i : hashset)&#123;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式二：使用迭代器</span></span><br><span class="line">HashSet&lt;String&gt; hashset = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">hashset.add(<span class="string">""</span>)...<span class="comment">//赋值</span></span><br><span class="line">Iterator iterator = hashset.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.haxNext())&#123;</span><br><span class="line">    System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h1><p>Map及映射，是双列集合，以键值对的方式存储数据。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Map</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于引入了键值对，所以有很多通过操作键来操作值的方法，常用方法有：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//增：增加键值对</span></span><br><span class="line"><span class="function">V <span class="title">put</span><span class="params">(K key,V value)</span></span>;</span><br><span class="line"><span class="comment">//删：根据键删除值</span></span><br><span class="line"><span class="function">V <span class="title">remove</span><span class="params">(Object key)</span></span>;</span><br><span class="line"><span class="comment">//清空集合</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查：根据键获取值</span></span><br><span class="line"><span class="function">V <span class="title">get</span><span class="params">(Object key)</span></span>;</span><br><span class="line"><span class="comment">//查询是否存在同样的键</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(Object key)</span></span>;</span><br><span class="line"><span class="comment">//查询是否存在同样的值</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsValue</span><span class="params">(Object value)</span></span>;</span><br><span class="line"><span class="comment">//查询集合大小</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//将key转为Set集合</span></span><br><span class="line"><span class="function">Set&lt;K&gt; <span class="title">keySet</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HashMap类"><a href="#HashMap类" class="headerlink" title="HashMap类"></a>HashMap类</h2><p>在Map的基础上，引入Hash表，将键散列存入哈希表中，操作方法同Map接口。</p>
+<h3 id="遍历-1"><a href="#遍历-1" class="headerlink" title="遍历"></a>遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一：keySet()方法</span></span><br><span class="line">Map&lt;String , <span class="keyword">int</span>&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="string">"..."</span>, <span class="number">1</span>)...<span class="comment">//赋值</span></span><br><span class="line">Set&lt;String&gt; set = map.keySet();</span><br><span class="line"><span class="comment">//通过遍历set获取Key值</span></span><br><span class="line">map.get(setValue);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法二：forEach()方法</span></span><br><span class="line">Map&lt;String , <span class="keyword">int</span>&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(<span class="string">"..."</span>, <span class="number">1</span>)...<span class="comment">//赋值</span></span><br><span class="line">map.forEach((k, v) -&gt; System.out.println(k + v));</span><br></pre></td></tr></table></figure>
 
 
       
@@ -377,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/06/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/" rel="prev" title="图片测试">
-                图片测试 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,7 +526,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -474,7 +539,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -507,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#集合"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#集合"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collection接口"><span class="nav-number">2.</span> <span class="nav-text">Collection接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List接口"><span class="nav-number">2.1.</span> <span class="nav-text">List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ArrayList类"><span class="nav-number">2.1.1.</span> <span class="nav-text">ArrayList类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkedList类"><span class="nav-number">2.1.2.</span> <span class="nav-text">LinkedList类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历（迭代器）"><span class="nav-number">2.1.3.</span> <span class="nav-text">遍历（迭代器）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set接口"><span class="nav-number">2.2.</span> <span class="nav-text">Set接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashSet类"><span class="nav-number">2.2.1.</span> <span class="nav-text">HashSet类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历"><span class="nav-number">2.2.2.</span> <span class="nav-text">遍历</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map接口"><span class="nav-number">3.</span> <span class="nav-text">Map接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap类"><span class="nav-number">3.1.</span> <span class="nav-text">HashMap类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">遍历</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
