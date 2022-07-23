@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-17T11:18:04.479Z</updated>
+  <updated>2022-07-23T10:22:59.500Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,23 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2022/07/17/Hello-World-0/"/>
-    <id>http://example.com/2022/07/17/Hello-World-0/</id>
-    <published>2022-07-17T11:16:07.000Z</published>
-    <updated>2022-07-17T11:18:04.479Z</updated>
+    <title>时间复杂度解题思路</title>
+    <link href="http://example.com/2022/07/23/%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
+    <id>http://example.com/2022/07/23/%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</id>
+    <published>2022-07-23T10:22:07.000Z</published>
+    <updated>2022-07-23T10:22:59.500Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第一个博客"><a href="#第一个博客" class="headerlink" title="第一个博客"></a>第一个博客</h1><p>Hello World！</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="时间复杂度解题思路"><a href="#时间复杂度解题思路" class="headerlink" title="时间复杂度解题思路"></a>时间复杂度解题思路</h1><h2 id="如何计算时间复杂度"><a href="#如何计算时间复杂度" class="headerlink" title="如何计算时间复杂度"></a>如何计算时间复杂度</h2><ol><li>找出问题规模n</li><li>找出基本语句</li><li>列出基本语句执行次数t与问题规模n的方程</li><li>解出t&#x3D;f(n)，则f(n)即为时间复杂度</li></ol><h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><h3 id="1、2011年计算机联考真题"><a href="#1、2011年计算机联考真题" class="headerlink" title="1、2011年计算机联考真题"></a>1、2011年计算机联考真题</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">while</span>(x&lt;n/<span class="number">2</span>)&#123;</span><br><span class="line">    x=<span class="number">2</span>*x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>解题步骤：<p></p><ol><li>问题规模n就是while(x&lt;n&#x2F;2)中的n</li><li>基本语句是x&#x3D;2*x;</li><li>执行多少次x&#x3D;2*x，使得x&#x3D;n&#x2F;2，即x&#x3D;n。假设执行t次，即x乘了t个2后等于n，所以2^t&#x3D;n。</li><li>解得t&#x3D;(log<sub>2</sub><sup>n</sup>，时间复杂度为O((log<sub>2</sub><sup>n</sup>)</li></ol><h3 id="2、2012年计算机联考真题"><a href="#2、2012年计算机联考真题" class="headerlink" title="2、2012年计算机联考真题"></a>2、2012年计算机联考真题</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;=<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> n*fact(n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>解题步骤：<p></p><ol><li>这是一个递归，问题规模是入参n</li><li>基本语句是return n*fact(n-1)。换一个思路，n-1执行的次数与递归执行的次数一样，因此将n-1看做基本语句</li><li>递归的结束是n&lt;&#x3D;1，因此执行多少次n-1后n&lt;&#x3D;1，显而易见，n减n次1后满足n&lt;&#x3D;1的条件</li><li>O(n)即为时间复杂度</li></ol><h3 id="3、2014年计算机联考真题"><a href="#3、2014年计算机联考真题" class="headerlink" title="3、2014年计算机联考真题"></a>3、2014年计算机联考真题</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">count=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;=n;k*=<span class="number">2</span>)&#123;</span><br><span class="line">   <span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">      count++;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>解题步骤：<p><br>问题规模有两个，先看内层：</p><ol><li>问题规模n就是j&lt;&#x3D;n中的n</li><li>基本语句看似是count++，实则应该是j++，这样方便找对应的方程</li><li>j初始是1，执行多少次j++后j&lt;&#x3D;n？显然执行n-1次后满足条件，即t&#x3D;n-1</li><li>因此时间复杂度为O(n)</li></ol><p>再看外层：<p></p><ol><li>问题规模n就是k&lt;&#x3D;n中的n</li><li>同内层的j++，这里将k*&#x3D;2看做基本语句</li><li>假设k乘t次2，可以使k&lt;&#x3D;n。即2^t&#x3D;n</li><li>解3中的方程，可得时间复杂度是O(log<sub>2</sub><sup>n</sup>)。</li></ol><p>结合内外层：<p><br>因为是嵌套for循环，是一个排列组合问题，应该将内外层时间复杂度相乘。故时间复杂度为O(nlog2n)</p><h3 id="4、2017年计算机联考真题"><a href="#4、2017年计算机联考真题" class="headerlink" title="4、2017年计算机联考真题"></a>4、2017年计算机联考真题</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">func</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>, sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(sum &lt; n)</span><br><span class="line">        sum += ++i;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>解题步骤：<p></p><ol><li>问题规模n就是while(sum &lt; n)中的n</li><li>sum +&#x3D; ++i 可以分解为 i+1; sum &#x3D; sum + i; 基本语句为sum &#x3D; sum + i;</li><li>问：执行多少次 sum &#x3D; sum + i，可以使 sum &#x3D; n ？</li></ol><table><thead><tr><th>执行次数t</th><th>sum</th></tr></thead><tbody><tr><td>1</td><td>sum &#x3D; 0 + 1 &#x3D; 1</td></tr><tr><td>2</td><td>sum &#x3D; 0 + 1 + 2 &#x3D; 3</td></tr><tr><td>3</td><td>sum &#x3D; 0 + 1 + 2 + 3 &#x3D; 6</td></tr><tr><td>4</td><td>sum &#x3D; 0 + 1 + 2 + 3 + 4 &#x3D; 10</td></tr><tr><td>可见，执行次数t与sum可构成一个代数式， 10 &#x3D; (1 + 4) * 4 &#x2F; 2  即：sum &#x3D; (1 + t) * t &#x2F; 2</td><td></td></tr></tbody></table><ol start="4"><li>根据步骤3可得出方程t^2 &#x3D; sum &#x3D; n，解得 t &#x3D; n<sup>1&#x2F;2</sup>，则该函数的时间复杂度为O(n<sup>1&#x2F;2</sup>)</li></ol><h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><p>难点在找出第三步的方程式<p><br><em>注：一个问题要搞清楚出现的所有概念以及概念之间的关系，这样这个问题按照逻辑就很容易解答。</em></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;第一个博客&quot;&gt;&lt;a href=&quot;#第一个博客&quot; class=&quot;headerlink&quot; title=&quot;第一个博客&quot;&gt;&lt;/a&gt;第一个博客&lt;/h1&gt;&lt;p&gt;Hello World！&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h1 id=&quot;时间复杂度解题思路&quot;&gt;&lt;a href=&quot;#时间复杂度解题思路&quot; class=&quot;headerlink&quot; title=&quot;时间复杂度解题思路&quot;&gt;&lt;/a&gt;时间复杂度解题思路&lt;/h1&gt;&lt;h2 id=&quot;如何计算时间复杂度&quot;&gt;&lt;a href=&quot;#如何计算时间复杂度&quot; class</summary>
       
     
     
     
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

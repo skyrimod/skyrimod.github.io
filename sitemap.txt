@@ -1,3 +1,4 @@
-http://example.com/2022/07/17/Hello-World-0/
+http://example.com/2022/07/23/%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/
 http://example.com/2022/07/17/hello-world/
 http://example.com/
+http://example.com/tags/%E7%AE%97%E6%B3%95/
